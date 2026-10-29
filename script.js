@@ -23,7 +23,6 @@
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
         localStorage.setItem('portfolio-gallery-theme', isDark ? 'dark' : 'light');
       } catch {
-        // Theme still works when browser storage is unavailable.
       }
     }
   }
@@ -32,7 +31,6 @@
   try {
     savedTheme = localStorage.getItem('theme') || localStorage.getItem('portfolio-gallery-theme');
   } catch {
-    // Use the page's theme when storage is unavailable.
   }
   const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
   setTheme(savedTheme || root.dataset.theme || (prefersDark ? 'dark' : 'light'));
